@@ -56,7 +56,37 @@ const Analysis = ({ history }) => {
 
   const newQuiz = () => {
     dispatch(resetAllRequestAction());
+    startQuiz();
     return;
+  };
+
+  const startQuiz = () => {
+    setIsLoading(true);
+    api
+      .getQuizData({ amount: 10 })
+      .then((res) => {
+        const results = res.data.results;
+        let options = [];
+        results.map((result) => {
+          const selectArr = [
+            ...result.incorrect_answers,
+            result.correct_answer,
+          ];
+          options = [...options, randomItem(selectArr)];
+        });
+        dispatch(setQuestionsRequestAction({ questions: results, options }));
+        setIsLoading(false);
+        history.push("/quiz");
+      })
+      .catch((e) => {
+        console.log(e, "e");
+      });
+  };
+
+  const randomItem = (options) => {
+    return options.sort(function (a, b) {
+      return 0.5 - Math.random();
+    });
   };
 
   const renderPieChart = () => {
