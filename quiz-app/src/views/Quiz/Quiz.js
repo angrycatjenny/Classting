@@ -34,6 +34,18 @@ const Quiz = ({ history }) => {
     setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (isShowResult) {
+      dispatch(setAnswersRequestAction(answers));
+    }
+  }, [isShowResult]);
+
+  useEffect(() => {
+    if (quiz.answers) {
+      history.push("/analysis");
+    }
+  }, [quiz.answers]);
+
   const renderQuestion = (step) => {
     return (
       <div className="quizBox">
@@ -69,7 +81,12 @@ const Quiz = ({ history }) => {
           {options[step].map((option, idx) => {
             return (
               <div className="questionBox">
-                <input type="radio" name="option" value={option} />
+                <input
+                  type="radio"
+                  name="option"
+                  value={option}
+                  onChange={handleOption}
+                />
                 <span
                   style={{ fontSize: "18px" }}
                   dangerouslySetInnerHTML={{ __html: option }}
@@ -78,9 +95,32 @@ const Quiz = ({ history }) => {
             );
           })}
         </div>
-        <button className="defaultButton">Next</button>
+        <button className="defaultButton" onClick={handleNext}>
+          Next
+        </button>
       </div>
     );
+  };
+
+  const handleOption = (e) => {
+    setSelectedOpt(e.target.value);
+  };
+
+  const handleNext = () => {
+    if (activeStep === totalQuest - 1) {
+      setAnswers([...answers, selectedOpt]);
+      setSelectedOpt("");
+      setIsShowResult(true);
+      return;
+    }
+    if (selectedOpt) {
+      setActiveStep((prevStep) => prevStep + 1);
+      setAnswers([...answers, selectedOpt]);
+      setSelectedOpt("");
+    } else {
+      alert("Please choose an answer!");
+      return;
+    }
   };
 
   return (
