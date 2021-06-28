@@ -40,6 +40,17 @@ const Analysis = ({ history }) => {
     }
   }, [answers]);
 
+  const restartQuiz = () => {
+    dispatch(resetAnswersRequestAction());
+    history.push("/quiz");
+    return;
+  };
+
+  const newQuiz = () => {
+    dispatch(resetAllRequestAction());
+    return;
+  };
+
   return (
     <>
       {isLoading ? (
@@ -65,8 +76,12 @@ const Analysis = ({ history }) => {
             </span>
           </div>
           <div className="flexBox">
-            <button className="defaultButton newButton">Restart</button>
-            <button className="defaultButton newButton">New Quiz</button>
+            <button className="defaultButton newButton" onClick={restartQuiz}>
+              Restart
+            </button>
+            <button className="defaultButton newButton" onClick={newQuiz}>
+              New Quiz
+            </button>
           </div>
         </div>
       )}
