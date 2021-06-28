@@ -6,6 +6,7 @@ import {
 } from "../../redux/reducers/quiz.js";
 import * as api from "../../controller/api.js";
 import "../../assets/css/global.css";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import Loading from "../../components/Loading/Loading.js";
 
 const Quiz = ({ history }) => {
@@ -17,6 +18,10 @@ const Quiz = ({ history }) => {
   const [selectedOpt, setSelectedOpt] = useState("");
   const [isShowResult, setIsShowResult] = useState(false);
   const [options, setOptions] = useState(null);
+  const [min, setMin] = useState(0);
+  const [sec, setSec] = useState(0);
+  const time = useRef(0);
+  let timer;
 
   const dispatch = useDispatch();
   const { quiz } = useSelector((state) => ({ quiz: state.quiz }));
@@ -32,11 +37,21 @@ const Quiz = ({ history }) => {
       setOptions(quiz.options);
     }
     setIsLoading(false);
+
+    timer = setInterval(() => {
+      setMin(parseInt(time.current / 60));
+      setSec(time.current % 60);
+      time.current += 1;
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
     if (isShowResult) {
       dispatch(setAnswersRequestAction(answers));
+      dispatch(setTimeRequestAction({ min, sec }));
+      clearInterval(timer);
     }
   }, [isShowResult]);
 
@@ -49,6 +64,12 @@ const Quiz = ({ history }) => {
   const renderQuestion = (step) => {
     return (
       <div className="quizBox">
+        <div className="timer">
+          <AccessTimeIcon />
+          <span className="defaultFontSize fontWeight">
+            {min}:{sec}
+          </span>
+        </div>
         <div className="flexBox">
           <span className="title">Question {step + 1}</span>
           <div style={{ marginLeft: "15px" }}>
