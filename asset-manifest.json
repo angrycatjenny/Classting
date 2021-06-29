@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "https://angrycatjenny.github.io/Classting/static/css/main.e9599a2a.chunk.css",
-    "main.js": "https://angrycatjenny.github.io/Classting/static/js/main.0369c033.chunk.js",
-    "main.js.map": "https://angrycatjenny.github.io/Classting/static/js/main.0369c033.chunk.js.map",
+    "main.css": "https://angrycatjenny.github.io/Classting/static/css/main.06261fc1.chunk.css",
+    "main.js": "https://angrycatjenny.github.io/Classting/static/js/main.5b69b2ec.chunk.js",
+    "main.js.map": "https://angrycatjenny.github.io/Classting/static/js/main.5b69b2ec.chunk.js.map",
     "runtime-main.js": "https://angrycatjenny.github.io/Classting/static/js/runtime-main.482b6dff.js",
     "runtime-main.js.map": "https://angrycatjenny.github.io/Classting/static/js/runtime-main.482b6dff.js.map",
     "static/js/2.7c304997.chunk.js": "https://angrycatjenny.github.io/Classting/static/js/2.7c304997.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.69c6315d.chunk.js": "https://angrycatjenny.github.io/Classting/static/js/3.69c6315d.chunk.js",
     "static/js/3.69c6315d.chunk.js.map": "https://angrycatjenny.github.io/Classting/static/js/3.69c6315d.chunk.js.map",
     "index.html": "https://angrycatjenny.github.io/Classting/index.html",
-    "static/css/main.e9599a2a.chunk.css.map": "https://angrycatjenny.github.io/Classting/static/css/main.e9599a2a.chunk.css.map",
+    "static/css/main.06261fc1.chunk.css.map": "https://angrycatjenny.github.io/Classting/static/css/main.06261fc1.chunk.css.map",
     "static/js/2.7c304997.chunk.js.LICENSE.txt": "https://angrycatjenny.github.io/Classting/static/js/2.7c304997.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.482b6dff.js",
     "static/js/2.7c304997.chunk.js",
-    "static/css/main.e9599a2a.chunk.css",
-    "static/js/main.0369c033.chunk.js"
+    "static/css/main.06261fc1.chunk.css",
+    "static/js/main.5b69b2ec.chunk.js"
   ]
 }
