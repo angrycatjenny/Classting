@@ -11,7 +11,7 @@ import store from "../src/redux/store.js";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="https://angrycatjenny.github.io/Classting/">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/quiz" component={Quiz} />
