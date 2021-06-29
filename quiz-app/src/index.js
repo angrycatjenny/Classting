@@ -9,17 +9,15 @@ import { Provider } from "react-redux";
 import store from "../src/redux/store.js";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter basename="https://angrycatjenny.github.io/Classting/">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/quiz" component={Quiz} />
-          <Route path="/analysis" component={Analysis} />
-        </Switch>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/quiz" component={Quiz} />
+        <Route path="/analysis" component={Analysis} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
