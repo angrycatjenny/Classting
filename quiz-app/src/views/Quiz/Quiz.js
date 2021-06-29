@@ -72,7 +72,7 @@ const Quiz = ({ history }) => {
         </div>
         <div className="flexBox">
           <span className="title">Question {step + 1}</span>
-          <div style={{ marginLeft: "15px" }}>
+          <div className="category">
             <span
               style={{
                 background: "pink",
