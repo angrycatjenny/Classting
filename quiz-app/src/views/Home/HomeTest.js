@@ -7,4 +7,9 @@ describe("<Home />", () => {
     const wrapper = mount(<Home />);
     expect(wrapper).toMatchSnapshot();
   });
+  it("start", () => {
+    const wrapper = mount(<Home />);
+    let quizButton = wrapper.findWhere((node) => node.type() === "button");
+    quizButton.simulate("click");
+  });
 });
